@@ -103,6 +103,6 @@ run_pipeline :: proc(cfg: config.Aegis_Config, workspace_root: string) -> bool {
 		return false
 	}
 
-	utils.log_success("🎉 Pipeline Complete! Target OS images built successfully.")
+	utils.log_success("Pipeline Complete! Target OS images built successfully.")
 	return true
 }
