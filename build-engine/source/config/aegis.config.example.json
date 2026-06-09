@@ -1,0 +1,14 @@
+{
+  "target_board": "amd64-generic",
+  "optimization_level": "O3",
+  "enable_avx512": true,
+  "distcc_hosts": [
+    "192.168.1.50/16",
+    "192.168.1.51/12",
+    "10.0.0.12/8"
+  ],
+  "branding": {
+    "os_name": "AegisOS",
+    "creator": "Helix-Development-Group"
+  }
+}
