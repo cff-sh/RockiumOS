@@ -3,6 +3,7 @@ package source
 import "core:fmt"
 import "core:os"
 import "core:strings"
+import "./utils"
 
 print_usage :: proc() {
 	fmt.println("AegisBuild v0.0.1 — Next-Gen Build Engine for RockiumOS\n")
