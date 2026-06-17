@@ -7,7 +7,9 @@ import "../config"
 import "../core"
 import "../utils"
 
+// The container name we assign.
 CONTAINER_NAME :: "aegis-sdk-container"
+// The image name we assign.
 IMAGE_NAME     :: "aegisbuild-sdk:latest"
 
 // Checks if the Docker daemon is accessible and running
