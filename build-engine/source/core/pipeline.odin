@@ -82,8 +82,11 @@ run_pipeline :: proc(cfg: config.Aegis_Config, workspace_root: string) -> bool {
 
 	utils.log_info(fmt.tprintf("Compiling cross-toolchain packages for target board: [%s]", cfg.target_board))
 	
-	// Example command sequence mapping to ChromiumOS build targets
-	setup_board_args := []string{"./setup_board", fmt.tprintf("--board=%s", cfg.target_board)}
+  // Board should be removed. As we target every platform like DragonFlyBSD.
+  // Instead, we should use architecture instead.
+  // Example command sequence mapping to ChromiumOS build targets
+	// TODO: Change this to be arcitecture, also make the sh file.
+  setup_board_args := []string{"./setup_board", fmt.tprintf("--board=%s", cfg.target_board)}
 	if !run_command_in_sdk(workspace_root, setup_board_args) {
 		utils.log_error("Cross-compiler board toolchain bootstrap phase crashed.")
 		return false
@@ -97,6 +100,7 @@ run_pipeline :: proc(cfg: config.Aegis_Config, workspace_root: string) -> bool {
 	}
 
 	utils.log_info("Packaging compiled objects into bootable sector images...")
+  // Here we should change the --board argument too.
 	build_image_args := []string{"./build_image", fmt.tprintf("--board=%s", cfg.target_board), "test"}
 	if !run_command_in_sdk(workspace_root, build_image_args) {
 		utils.log_error("Disk topology packaging routine failed to yield a bootable .bin image.")

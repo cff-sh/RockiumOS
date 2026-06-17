@@ -37,13 +37,16 @@ sync_upstream :: proc(cfg: config.Aegis_Config, workspace_root: string) -> bool 
 	fetch_args := []string{"fetch", "upstream"}
 	_, fetch_code, fetch_ok := execute_git_command(fetch_args, workspace_root)
 	if !fetch_ok || fetch_code != 0 {
-		utils.log_error("Network or remote synchronization fault while pulling upstream trees.")
+	  // We check if the check wasn't okay.
+    utils.log_error("Network or remote synchronization fault while pulling upstream trees.")
 		return false
 	}
 
 	utils.log_info("Executing tree synchronization via rebase orchestration...")
 
 	// Attempting a rebase on top of upstream main branch
+  // We should look if this is actually the branch called
+  // main, depending on if we folow developer branches or not.
 	rebase_args := []string{"rebase", "upstream/main"}
 	_, rebase_code, rebase_ok := execute_git_command(rebase_args, workspace_root)
 
@@ -54,7 +57,8 @@ sync_upstream :: proc(cfg: config.Aegis_Config, workspace_root: string) -> bool 
 		
 		// Abort the rebase automatically to leave the tree clean
 		abort_args := []string{"rebase", "--abort"}
-		execute_git_command(abort_args, workspace_root)
+	  // Run the abort_args within the command.
+    execute_git_command(abort_args, workspace_root)
 		return false
 	}
 

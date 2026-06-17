@@ -1,6 +1,6 @@
 ODIN := odin
 SRC := ./source
-BIN := bin/myapp
+BIN := bin/aegis
 
 .PHONY: build run debug clean
 
