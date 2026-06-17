@@ -2,7 +2,7 @@
 
 RockiumOS is a fork of the ThoriumOS, from Alex313031. Located @ https://github.com/Alex313031/ThoriumOS
 
-RockiumOS uses instead of the Linux Kernel, the DragonFlyBSD Kernel. We are aiming it a complete custom OS
+RockiumOS uses instead of the Linux Kernel, the DragonFlyBSD Kernel. We are aiming it to be a complete custom OS
 in the long term.
 
 RockiumOS utilizes a brand new build-system and enhanced features. Our brand new build-system is the main-stream, new, and enhanced feature. The build system will be explained in depth below.
